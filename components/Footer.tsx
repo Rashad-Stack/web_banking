@@ -1,6 +1,6 @@
 "use client";
 
-import { signOut } from "@/lib/actions/user.action";
+import { signOut } from "@/lib/actions/user.actions";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
