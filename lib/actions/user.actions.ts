@@ -12,7 +12,7 @@ import {
 import { plaidClient } from "../plaid";
 import { createAdminClient, createSessionClient } from "../server/appwrite";
 import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils";
-import { createDwollaCustomer } from "./dwolla.actions";
+import { addFundingSource, createDwollaCustomer } from "./dwolla.actions";
 
 const {
   APPWRITE_DATABASE_ID: DATABASE_ID,
@@ -152,6 +152,7 @@ export async function createBankAccount({
       BANK_COLLECTION_ID!,
       ID.unique(),
       {
+        userId,
         bankId,
         accountId,
         accessToken,
