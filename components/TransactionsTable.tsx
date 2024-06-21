@@ -57,7 +57,7 @@ export default function TransactionsTable({
               key={transaction.id}
               className={`${isDebit || amount[0] === "-" ? "bg-[#FFFBFA]" : "bg-[#F6FEF9]"} !over:bg-none !border-b-DEFAULT`}
             >
-              <TableCell className="max-w-32 pl-2 pr-10">
+              <TableCell className="max-w-[150px] pl-2 pr-5">
                 <div className="flex items-center gap-3">
                   <h1 className="text-14 truncate font-semibold text-[#344054]">
                     {removeSpecialCharacters(transaction.name)}
@@ -66,29 +66,28 @@ export default function TransactionsTable({
               </TableCell>
 
               <TableCell
-                className={`pl-2 pr-10 font-semibold ${
+                className={`pl-2 pr-5 font-semibold ${
                   isDebit || amount[0] === "-"
                     ? "text-[#f04438]"
                     : "text-[#039855]"
                 }`}
               >
-                {isDebit && "-"}
-                {amount}
+                {isDebit ? `-${amount}` : isCredit ? amount : amount}
               </TableCell>
 
-              <TableCell className="pl-2 pr-10">
+              <TableCell className="pl-2 pr-5">
                 <CategoryBadge category={status} />
               </TableCell>
 
-              <TableCell className="min-w-32 pl-2 pr-10">
+              <TableCell className="min-w-32 pl-2 pr-5">
                 {formatDateTime(new Date(transaction.date)).dateTime}
               </TableCell>
 
-              <TableCell className="min-w-24 pl-2 pr-10 capitalize max-md:hidden">
+              <TableCell className="min-w-24 pl-2 pr-5 capitalize max-md:hidden">
                 {transaction.paymentChannel}
               </TableCell>
 
-              <TableCell className="pl-2 pr-10 max-md:hidden">
+              <TableCell className="pl-2 pr-5 max-md:hidden">
                 <CategoryBadge category={transaction.category} />
               </TableCell>
             </TableRow>
