@@ -24,7 +24,7 @@ export default function Footer({ user, type = "desktop" }: FooterProps) {
           "footer_name-mobile": type === "mobile",
         })}
       >
-        <p className="text-xl font-bold text-gray-700">{user?.name[0]}</p>
+        <p className="text-xl font-bold text-gray-700">{user?.firstName[0]}</p>
       </div>
 
       <div
@@ -34,7 +34,7 @@ export default function Footer({ user, type = "desktop" }: FooterProps) {
         })}
       >
         <h1 className="text-14 truncate font-semibold text-gray-700">
-          {user?.name}
+          {user?.firstName} {user?.lastName}
         </h1>
         <h1 className="text-14 truncate font-normal text-gray-600">
           {user?.email}
